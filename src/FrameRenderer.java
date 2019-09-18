@@ -29,10 +29,8 @@ public class FrameRenderer {
 		mainFrame.getContentPane().add(new JLabel(new ImageIcon("C:\\Users\\Darius\\Desktop\\DeckOfCards\\AceOfSpades.jpg")));
 	}
 	public void DisplayCard(Card cardToShow) {
-		ImageIcon ii = new ImageIcon("C:\\Users\\Darius\\Desktop\\DeckOfCards\\AceOfSpades.jpg");
-		if ((cardToShow.getNumber().equals("A") && cardToShow.getSuit().equals("Spades"))) {
-			mainFrame.getContentPane().add(new JLabel (ii));
-		}
+		ImageIcon ii = new ImageIcon(cardToShow.getIcon());
+		mainFrame.getContentPane().add(new JLabel (ii));
 		packFrame();
 		SetLocation(400,100, ii.getIconWidth() + 9, ii.getIconHeight() + 25);
 		showFrame();
