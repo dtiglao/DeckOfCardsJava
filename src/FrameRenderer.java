@@ -4,12 +4,14 @@ import java.awt.Label;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class FrameRenderer {
 	//Objects.Variables
 	JFrame mainFrame = new JFrame("Card Renderer");
 	Label emptyLabel = new Label("Hello!");
-	
+	JPanel mainPanel = new JPanel(new BorderLayout());
+	JPanel northPanel = new JPanel();
 	//Constructors
 	FrameRenderer() {
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,7 +32,10 @@ public class FrameRenderer {
 	}
 	public void DisplayCard(Card cardToShow) {
 		ImageIcon ii = new ImageIcon(cardToShow.getIcon());
-		mainFrame.getContentPane().add(new JLabel (ii));
+		mainFrame.getContentPane().add(mainPanel);
+		northPanel.add(new JLabel (ii));
+		mainPanel.add(northPanel);
+		
 		packFrame();
 		SetLocation(400,100, ii.getIconWidth() + 9, ii.getIconHeight() + 25);
 		showFrame();
